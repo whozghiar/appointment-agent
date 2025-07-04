@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - whisper
+      - tts
+
+  whisper:
+    build: ./whisper
+    volumes:
+      - ./shared:/shared
+
+  tts:
+    build: ./tts
+    volumes:
+      - ./shared:/shared
+
+  asterisk:
+    build: ./asterisk
+    ports:
+      - "5060:5060/udp"
+      - "8088:8088"
+    volumes:
+      - ./asterisk/conf:/etc/asterisk

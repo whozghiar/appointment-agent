@@ -1,0 +1,17 @@
+# Environnement virtuel local
+.venv/
+
+# Fichiers Python
+__pycache__/
+*.pyc
+*.pyo
+
+# PyCharm
+.idea/
+
+# Docker
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
