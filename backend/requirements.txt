@@ -9,3 +9,5 @@ python-jose
 openai-whisper
 pydantic
 pytest
+requests
+python-multipart

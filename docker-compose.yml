@@ -9,12 +9,16 @@ services:
       - .env
     volumes:
       - ./backend:/app
+    environment:
+      - WHISPER_URL=http://whisper:8080/transcrire
     depends_on:
       - whisper
       - tts
 
   whisper:
     build: ./whisper
+    ports:
+        - "8081:8080"
     volumes:
       - ./shared:/shared
 
@@ -30,3 +34,4 @@ services:
       - "8088:8088"
     volumes:
       - ./asterisk/conf:/etc/asterisk
+

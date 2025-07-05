@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
+from backend.app.api import stt_router
 app = FastAPI(title="Agent Prise de Rendez-vous Coiffeur")
 
 app.add_middleware(
@@ -10,6 +10,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(stt_router.router)
 
 @app.get("/health")
 def health_check():
