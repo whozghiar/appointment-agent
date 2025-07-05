@@ -10,4 +10,5 @@ openai-whisper
 pydantic
 pytest
 requests
+dateparser
 python-multipart
