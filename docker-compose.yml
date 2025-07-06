@@ -11,9 +11,11 @@ services:
       - ./backend:/app
     environment:
       - WHISPER_URL=http://whisper:8080/transcrire
+      - DATABASE_URL=postgresql://user:pass@db:5432/appointments
     depends_on:
       - whisper
       - tts
+      - db
 
   whisper:
     build: ./whisper
@@ -35,3 +37,20 @@ services:
     volumes:
       - ./asterisk/conf:/etc/asterisk
 
+
+  db:
+    build: ./db
+    container_name: appointments_pg15_db
+    restart: always
+    environment:
+      POSTGRES_DB: appointments
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./db/init_db.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5433:5432"
+
+volumes:
+    db-data:

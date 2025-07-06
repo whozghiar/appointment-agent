@@ -11,4 +11,6 @@ pydantic
 pytest
 requests
 dateparser
+sqlalchemy
+psycopg[binary]
 python-multipart
