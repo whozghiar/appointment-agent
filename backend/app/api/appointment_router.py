@@ -9,7 +9,7 @@ router = APIRouter(prefix="/appointments", tags=["appointments"])
 @router.post("/", response_model=AppointmentRead)
 def creer_rdv(donnees: AppointmentCreate, db: Session = Depends(get_db)):
     with get_db() as db:
-        rdv = appointment_service.creer_appointment(db, donnees)
+        rdv = appointment_service.plan_appointment_if_available(db, donnees)
     if not rdv:
         raise HTTPException(status_code=400, detail="Erreur lors de la création du rendez-vous")
     return rdv
