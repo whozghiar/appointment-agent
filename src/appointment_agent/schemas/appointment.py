@@ -1,3 +1,5 @@
+"""Schémas Pydantic pour les rendez-vous."""
+
 from pydantic import BaseModel, ConfigDict
 from datetime import datetime
 

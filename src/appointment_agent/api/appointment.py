@@ -1,8 +1,10 @@
+"""Routes FastAPI pour la gestion des rendez-vous."""
+
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from backend.app.database import get_db
-from backend.app.schemas.appointment_schema import AppointmentCreate, AppointmentRead
-from backend.app.services import appointment_service
+from appointment_agent.utils.database import get_db
+from appointment_agent.schemas.appointment import AppointmentCreate, AppointmentRead
+from appointment_agent.services import appointment as appointment_service
 
 router = APIRouter(prefix="/appointments", tags=["appointments"])
 

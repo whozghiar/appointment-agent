@@ -1,5 +1,7 @@
+"""Définition du modèle SQLAlchemy des rendez-vous."""
+
 from sqlalchemy import Column, Integer, String, DateTime
-from backend.app.database import Base
+from appointment_agent.utils.database import Base
 
 class Appointment(Base):
     __tablename__ = "appointment"

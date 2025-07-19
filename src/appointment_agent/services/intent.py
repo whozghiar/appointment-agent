@@ -1,3 +1,5 @@
+"""Service de détection d'intention et de date."""
+
 from datetime import datetime
 from dateutil.parser import parse
 from typing import Optional

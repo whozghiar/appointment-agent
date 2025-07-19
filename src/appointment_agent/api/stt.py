@@ -1,3 +1,5 @@
+"""Routes liées à la transcription vocale."""
+
 import os
 import httpx
 from fastapi import APIRouter, UploadFile, File, HTTPException

@@ -1,3 +1,5 @@
+"""Gestion simplifiée de la connexion à la base de données."""
+
 from contextlib import contextmanager
 from typing import Generator
 from sqlalchemy import create_engine

@@ -1,3 +1,5 @@
+"""Outils d'extraction de date depuis du texte libre."""
+
 from datetime import datetime
 from dateutil.parser import parse
 from typing import Optional

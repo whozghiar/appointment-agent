@@ -1,9 +1,11 @@
+"""Services liés aux opérations CRUD sur les rendez-vous."""
+
 from http.client import HTTPException
 
 from sqlalchemy.orm import Session
-from backend.app.models.appointment_model import Appointment
-from backend.app.schemas.appointment_schema import AppointmentCreate
-from backend.app.services.availabilty_service import isAvailable
+from appointment_agent.models.appointment import Appointment
+from appointment_agent.schemas.appointment import AppointmentCreate
+from appointment_agent.services.availability import isAvailable
 
 def creer_appointment(db: Session, donnees: AppointmentCreate) -> Appointment:
     appointment = Appointment(**donnees.model_dump())

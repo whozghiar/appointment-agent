@@ -45,3 +45,17 @@ Automatiser la prise de rendez-vous via un appel vocal, avec reconnaissance de l
 ```bash
 docker-compose build
 docker-compose up
+```
+
+## Structure du code
+
+```text
+src/
+    appointment_agent/
+        api/            # Routes FastAPI
+        core/           # Orchestrateur métier
+        models/         # Modèles SQLAlchemy
+        schemas/        # Schémas Pydantic
+        services/       # Logique applicative
+        utils/          # Outils divers
+```
