@@ -1,12 +1,13 @@
 """Tests unitaires.
 
-Ajoute le dossier ``src`` au ``PYTHONPATH`` pour permettre les imports du
-package ``appointment_agent`` durant l'exécution des tests.
+Assure que le dossier racine du projet est présent dans le ``PYTHONPATH`` afin
+de pouvoir importer correctement le package ``appointment_agent`` lors de
+l'exécution des tests.
 """
 
 import sys
 from pathlib import Path
 
-src_path = Path(__file__).resolve().parents[1] / "src"
-if str(src_path) not in sys.path:
-    sys.path.insert(0, str(src_path))
+root_path = Path(__file__).resolve().parents[1]
+if str(root_path) not in sys.path:
+    sys.path.insert(0, str(root_path))

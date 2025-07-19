@@ -50,12 +50,11 @@ docker-compose up
 ## Structure du code
 
 ```text
-src/
-    appointment_agent/
-        api/            # Routes FastAPI
-        core/           # Orchestrateur métier
-        models/         # Modèles SQLAlchemy
-        schemas/        # Schémas Pydantic
-        services/       # Logique applicative
-        utils/          # Outils divers
+appointment_agent/
+    api/            # Routes FastAPI
+    core/           # Orchestrateur métier
+    models/         # Modèles SQLAlchemy
+    schemas/        # Schémas Pydantic
+    services/       # Logique applicative
+    utils/          # Outils divers
 ```
