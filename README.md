@@ -7,7 +7,7 @@ Automatiser la prise de rendez-vous par téléphone avec reconnaissance vocale, 
 
 ## Architecture
 
-- **`appointment_agent`** : code Python principal (FastAPI, services et modèles).
+- **`backend/app`** : code Python principal (FastAPI, services et modèles).
 - **`whisper`** : service de transcription audio.
 - **`tts`** : service de synthèse vocale.
 - **`asterisk`** : passerelle téléphonique.
@@ -26,7 +26,7 @@ Une fois lancé, l'API FastAPI est disponible sur `http://localhost:8000`.
 ## Exemple minimal
 
 ```python
-from appointment_agent.main import app
+from backend.app.main import app
 ```
 
 La configuration se fait via les variables du fichier `.env` à la racine.

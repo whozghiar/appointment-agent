@@ -1,1 +1,1 @@
-# fichier __init__.py
+"""Services métiers de l'application."""

@@ -1,6 +1,6 @@
 import pytest
 from fastapi.testclient import TestClient
-from appointment_agent.main import app
+from backend.app.main import app
 from pathlib import Path
 
 client = TestClient(app)
