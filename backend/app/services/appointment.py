@@ -1,9 +1,9 @@
 from http.client import HTTPException
 
 from sqlalchemy.orm import Session
-from backend.app.models.appointment_model import Appointment
-from backend.app.schemas.appointment_schema import AppointmentCreate
-from backend.app.services.availabilty_service import isAvailable
+from ..models.appointment import Appointment
+from ..schemas.appointment import AppointmentCreate
+from .availability import isAvailable
 
 def creer_appointment(db: Session, donnees: AppointmentCreate) -> Appointment:
     appointment = Appointment(**donnees.model_dump())

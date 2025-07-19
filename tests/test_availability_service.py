@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
-from backend.app.database import SessionLocal
-from backend.app.models.appointment_model import Appointment
-from backend.app.services.availabilty_service import isAvailable
+from backend.app.utils.database import SessionLocal
+from backend.app.models.appointment import Appointment
+from backend.app.services.availability import isAvailable
 
 def test_disponibilite_sans_conflit():
     db = SessionLocal()

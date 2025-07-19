@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, DateTime
-from backend.app.database import Base
+from ..utils.database import Base
 
 class Appointment(Base):
     __tablename__ = "appointment"

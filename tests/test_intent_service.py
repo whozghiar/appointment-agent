@@ -4,7 +4,7 @@ from datetime import datetime
 import re
 import pytest
 from unittest.mock import patch, Mock
-from backend.app.services.intent_service import (
+from backend.app.services.intent import (
     send_reformulation_prompt,
     extract_iso_from_text,
     reformulate_with_explicit_date,
@@ -39,7 +39,7 @@ def test_extract_iso_from_text_not_found():
     print("Date ISO extraite (absente) :", iso)
     assert iso is None
 
-@patch("backend.app.services.intent_service.requests.post")
+@patch("backend.app.services.intent.requests.post")
 def test_send_reformulation_prompt_moque(mock_post):
     """
     Test moqué : envoie du prompt et nettoyage des guillemets.
@@ -67,7 +67,7 @@ def test_send_reformulation_prompt_reel():
     print("Date ISO extraite du prompt réel :", iso)
     assert iso is not None or "Aucune date détectée" in resultat
 
-@patch("backend.app.services.intent_service.send_reformulation_prompt")
+@patch("backend.app.services.intent.send_reformulation_prompt")
 def test_reformulate_with_explicit_date_moque(mock_prompt):
     """
     Test moqué : cas où le LLM renvoie un timestamp valide.
@@ -107,7 +107,7 @@ def test_extract_datetime_invalid():
     print("Datetime parsé (invalide) :", dt)
     assert dt is None
 
-@patch("backend.app.services.intent_service.reformulate_with_explicit_date")
+@patch("backend.app.services.intent.reformulate_with_explicit_date")
 def test_detect_intent_and_datetime_success(mock_reform):
     """
     Test moqué : détection datetime valide via pipeline.
@@ -118,7 +118,7 @@ def test_detect_intent_and_datetime_success(mock_reform):
     assert isinstance(dt, datetime)
     assert (dt.year, dt.month, dt.day, dt.hour, dt.minute) == (2025, 9, 10, 11, 0)
 
-@patch("backend.app.services.intent_service.reformulate_with_explicit_date")
+@patch("backend.app.services.intent.reformulate_with_explicit_date")
 def test_detect_intent_and_datetime_none(mock_reform):
     """
     Test moqué : renvoie None si pas de date explicite.

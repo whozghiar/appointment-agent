@@ -3,15 +3,15 @@ from fastapi.testclient import TestClient
 from pydantic import ValidationError
 
 from backend.app.main import app
-from backend.app.models.appointment_model import Appointment
-from backend.app.schemas.appointment_schema import AppointmentCreate
-from backend.app.services.appointment_service import (
+from backend.app.models.appointment import Appointment
+from backend.app.schemas.appointment import AppointmentCreate
+from backend.app.services.appointment import (
     creer_appointment,
     lister_appointments,
     recuperer_appointment,
     supprimer_appointment,
 )
-from backend.app.database import get_db
+from backend.app.utils.database import get_db
 
 client = TestClient(app)
 

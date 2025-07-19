@@ -1,47 +1,32 @@
 # Agent vocal de prise de rendez-vous – Coiffeur
 
-Ce projet met en place un agent conversationnel téléphonique vocal permettant à un client de prendre rendez-vous chez un coiffeur. Il s'exécute en local via Docker, en utilisant des composants open-source et gratuits.
-
----
+Ce projet propose un agent conversationnel vocal permettant à un client de prendre rendez-vous chez un coiffeur. Il fonctionne localement grâce à Docker et des composants open source.
 
 ## Objectif
+Automatiser la prise de rendez-vous par téléphone avec reconnaissance vocale, détection d'intention et stockage en base de données.
 
-Automatiser la prise de rendez-vous via un appel vocal, avec reconnaissance de la parole, synthèse vocale, intégration Google Calendar, et envoi d'email de confirmation.
+## Architecture
 
----
+- **`backend/app`** : code Python principal (FastAPI, services et modèles).
+- **`whisper`** : service de transcription audio.
+- **`tts`** : service de synthèse vocale.
+- **`asterisk`** : passerelle téléphonique.
 
-## Architecture des services
+Chaque service possède son propre Dockerfile.
 
-### 1. `backend` (FastAPI)
-- Sert de cœur applicatif
-- Gère la logique métier : dialogue, calendrier, communication
-- Fournit des endpoints REST pour les futures extensions
-- Exposé sur `http://localhost:8000`
-
-### 2. `whisper` (Speech-to-Text)
-- Utilise Whisper d’OpenAI pour convertir l’audio de l’appelant en texte
-- Fonctionne en local via HTTP
-
-### 3. `tts` (Text-to-Speech)
-- Fournit la synthèse vocale à partir des textes renvoyés par le backend
-- Implémentable avec Coqui.ai ou autre moteur local open-source
-
-### 4. `asterisk` (VoIP)
-- Route les appels téléphoniques vers le système local
-- Interagit avec les scripts backend via AGI ou websocket
-- Permet d’accueillir les appels, d’enregistrer les audios et de diffuser les réponses
-
----
-
-## Démarrage
-
-### Pré-requis
-
-- Docker
-- Docker Compose
-
-### Lancer le projet
+## Lancer le projet
 
 ```bash
 docker-compose build
 docker-compose up
+```
+
+Une fois lancé, l'API FastAPI est disponible sur `http://localhost:8000`.
+
+## Exemple minimal
+
+```python
+from backend.app.main import app
+```
+
+La configuration se fait via les variables du fichier `.env` à la racine.

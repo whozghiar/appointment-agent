@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 from sqlalchemy.orm import Session
-from backend.app.models.appointment_model import Appointment
+from ..models.appointment import Appointment
 
 # Créneau d'ouverture par défaut
 OUVERTURE = 9
