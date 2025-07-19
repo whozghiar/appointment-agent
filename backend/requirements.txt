@@ -8,6 +8,7 @@ google-api-python-client
 python-jose
 openai-whisper
 pydantic
+pydantic_settings
 pytest
 requests
 dateparser

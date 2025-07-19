@@ -9,7 +9,7 @@ Exemple d'utilisation::
     print(settings.POSTGRES_DB)
 """
 
-from pydantic import BaseSettings
+from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
